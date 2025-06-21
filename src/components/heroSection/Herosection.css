@@ -1,0 +1,64 @@
+.hero-container {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically (Navbar on top of content) */
+  height: 100vh; /* 100% of the viewport height */
+  width: 100vw; /* ADDED: 100% of the viewport width */
+  align-items: center; /* Center children horizontally */
+  color: white; /* Text color for children */
+  
+  /* --- BACKGROUND --- */
+  /* Make sure this path is correct or use a working URL */
+  /* This placeholder will work. Replace it with your own image later. */
+  background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+}
+
+/* --- NAVBAR STYLING --- */
+/* We need to override the Navbar's default background and make it stretch */
+.hero-container .navbar {
+  width: 100%; /* Make navbar take full width of the hero container */
+  background-color: transparent; /* Make it transparent */
+  /* You can give it a semi-transparent background for better text visibility */
+  /* background-color: rgba(0, 0, 0, 0.5); */ 
+}
+
+
+/* --- CONTENT STYLING --- */
+.hero-content {
+  /* This container holds your H1, P, and Button */
+  flex-grow: 1; /* ADDED: This makes the content take all available vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  padding: 1rem; /* Add some padding so text doesn't touch the edges */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+}
+
+.hero-button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #c33024;
+}

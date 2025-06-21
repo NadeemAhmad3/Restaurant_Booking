@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; /* This stays the same */
+  align-items: center;
+  /* Remove background-color if you want it transparent from the hero */
+  padding: 1rem;
+  color: white;
+  width: 100%; /* Ensure navbar itself is full-width */
+  max-width: 1200px; /* Optional: Constrains the content width on very large screens */
+  margin: 0 auto; /* Optional: Centers the content (logo and links) */
+}
+
+.navbar-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  /* Add a white border like in your first screenshot */
+  border: 2px solid white;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-links {
+  display: flex; /* It needs to be a flex container itself */
+  justify-content: center; /* THIS IS THE KEY: It centers the <li> items */
+  flex-grow: 1; /* THIS IS THE KEY: It makes the container grow to fill empty space */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 1.5rem; /* Use horizontal margin for spacing */
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds readability */
+}
+
+.navbar-links a:hover {
+  color: #ddd;
+}
