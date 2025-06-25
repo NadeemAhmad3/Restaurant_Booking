@@ -1,0 +1,635 @@
+/* src/components/Herosection.css */
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+   padding-top: 80px;
+  height: 100vh;
+  box-sizing: border-box;
+  width: 100%;
+  color: white;
+  background-image: url('../../assets/hs1.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+  padding-right: 2rem;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInFromLeft 1s ease-out 0.5s forwards;
+}
+
+/* Sale badge container */
+.sale-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Updated sale badge */
+.sale-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  animation: pulse 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.sale-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shine 3s infinite;
+}
+
+.sale-icon {
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+.sale-text {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.sale-percentage {
+  font-size: 1.1rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #ffd700, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  z-index: 1;
+}
+
+/* Timer styles */
+.timer-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.timer-icon {
+  font-size: 1.2rem;
+  animation: tick 1s infinite;
+}
+
+@keyframes tick {
+  0%, 50% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+}
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffd700;
+  line-height: 1;
+}
+
+.timer-label {
+  font-size: 0.7rem;
+  color: #bdc3c7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timer-separator {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  
+  background: linear-gradient(135deg, #fff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typewriter effect */
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid #ffd700;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: 
+    typing 3s steps(40, end) 1s forwards,
+    blink-caret 0.75s step-end infinite;
+  width: 0;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #ffd700; }
+}
+
+/* Enhanced stylish paragraph styling */
+.hero-description {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+  line-height: 1.6;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 2.5s forwards;
+  letter-spacing: 0.3px;
+}
+
+/* Stylish text highlights */
+.highlight-text {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  text-shadow: none;
+  position: relative;
+}
+
+.accent-text {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  text-shadow: none;
+  font-style: italic;
+}
+
+.golden-text {
+  background: linear-gradient(135deg, #ffd700, #ffed4a, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  text-shadow: none;
+  position: relative;
+  animation: shimmer 2s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  0% {
+    background: linear-gradient(135deg, #ffd700, #ffed4a, #f39c12);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  100% {
+    background: linear-gradient(135deg, #ffed4a, #ffd700, #ffed4a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+/* === NEW, CLEANER HERO BUTTON STYLES === */
+.hero-button {
+  display: inline-flex; /* Use inline-flex for better alignment */
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem; /* Space between icon and text */
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #1a1a1a; /* Dark text for better contrast */
+  background: var(--primary-color, #FFD600); /* Use your primary yellow */
+  border: none;
+  border-radius: 50px; /* Pill shape */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0; /* Keep the animation */
+  animation: fadeInUp 1s ease-out 3s forwards;
+}
+
+.hero-button .button-icon {
+  font-size: 1.5rem; /* Control icon size */
+  transition: transform 0.3s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-4px); /* Subtle lift effect */
+  box-shadow: 0 8px 20px rgba(255, 214, 0, 0.3); /* A nice glow effect */
+  filter: brightness(1.05); /* Make it slightly brighter */
+}
+
+.hero-button:hover .button-icon {
+  transform: rotate(-15deg); /* Playful icon rotation on hover */
+}
+
+.hero-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Animation keyframes */
+@keyframes slideInFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- STYLES FOR RIGHT COLUMN (IMAGES) --- */
+.hero-images {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 450px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.pizza-image {
+  position: absolute;
+  width: 50%;
+  max-width: 450px;
+  z-index: 5;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.burger-orbit-container {
+  position: absolute;
+  width: 550px;
+  height: 550px; 
+  animation: orbit-path 30s linear infinite;
+}
+
+/* Orbiting burger styles - no tilt change, just smooth animation */
+.orbiting-burger {
+  position: absolute;
+  width: 140px;
+  z-index: 10;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.orbiting-burger:hover {
+  transform: scale(1.1);
+}
+
+/* Burger positioning without changing tilt */
+.orbiting-burger:nth-child(1) {
+  top: 0;
+  left: 50%;
+  animation: counter-spin-horizontal 30s linear infinite;
+}
+
+.orbiting-burger:nth-child(2) {
+  top: 50%;
+  right: 0;
+  animation: counter-spin-vertical 30s linear infinite;
+}
+
+.orbiting-burger:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  animation: counter-spin-horizontal 30s linear infinite;
+}
+
+.orbiting-burger:nth-child(4) {
+  top: 50%;
+  left: 0;
+  animation: counter-spin-vertical 30s linear infinite;
+}
+
+/* Counter-spin animations to maintain burger orientation */
+@keyframes counter-spin-horizontal {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(-360deg);
+  }
+}
+
+@keyframes counter-spin-vertical {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-360deg);
+  }
+}
+
+@keyframes orbit-path {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-text {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    max-width: 400px;
+  }
+  
+  .sale-badge-container {
+    justify-content: center;
+  }
+  
+  .timer-display {
+    gap: 0.2rem;
+  }
+  
+  .timer-number {
+    font-size: 1rem;
+  }
+  
+  .burger-orbit-container {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .orbiting-burger {
+    width: 100px;
+  }
+}
+/* src/components/heroSection/Herosection.css */
+
+/* ... (Your existing styles for .hero-container, .hero-content, etc. remain) ... */
+
+/* --- ENHANCED PROMO BAR STYLES --- */
+/* (Delete the old .promo-bar styles and replace with this block) */
+
+.promo-bar {
+  display: inline-flex; /* Use inline-flex to wrap content tightly */
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 
+              0 0 20px rgba(255, 214, 0, 0.1); /* Added a subtle yellow glow */
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards; /* New engaging animation */
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.promo-deal,
+.promo-timer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.4rem;
+  height: 100%;
+}
+
+.promo-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+/* The "Hot Deal" part with a solid gold background */
+.promo-deal {
+  background: linear-gradient(135deg, var(--primary-color, #FFD600), #ffc300);
+  color: #1a1a1a;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.deal-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.deal-text strong {
+  font-weight: 800;
+}
+
+/* Shimmer animation for the percentage */
+.shimmer-text {
+  background: linear-gradient(90deg, #1a1a1a, #4d4d4d, #1a1a1a);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* The "Timer" part with the glass effect */
+.promo-timer {
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none; /* Avoid double border in the middle */
+  color: #f1f1f1;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+/* Make the timer numbers gold for emphasis */
+.timer-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary-color, #FFD600); /* THEME COLOR */
+  text-shadow: 0 0 5px rgba(255, 214, 0, 0.5); /* Add a glow to the numbers */
+}
+
+/* Other timer text remains subtle */
+.timer-label {
+  font-size: 0.6rem;
+  color: #aaa;
+  text-transform: uppercase;
+}
+.timer-separator {
+  color: #aaa;
+  font-weight: 700;
+  font-size: 1rem;
+  padding-bottom: 5px;
+}
+
+/* Responsive adjustments for the enhanced promo bar */
+@media (max-width: 768px) {
+  .promo-bar {
+    flex-direction: column;
+    gap: 0; /* No gap when stacked */
+  }
+
+  /* Make all corners rounded when stacked */
+  .promo-deal {
+    border-radius: 50px 50px 0 0;
+    width: 100%;
+    justify-content: center;
+  }
+  .promo-timer {
+    border-radius: 0 0 50px 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Add a top border on mobile */
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* src/components/heroSection/Herosection.css */
+
+/* ... (All your other styles remain the same) ... */
+
+/* --- DELETE the old .highlight-text, .accent-text, and .golden-text styles --- */
+
+
+/* --- UPDATE the main paragraph style with this new code --- */
+.hero-description {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 2.5s forwards;
+  letter-spacing: 0.3px;
+  
+  /* --- NEW STYLES FOR READABILITY --- */
+  color: rgba(255, 255, 255, 0.9); /* A slightly off-white is easier on the eyes */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* This dark shadow makes the text POP from the background */
+}
+
+/* --- ADD this new style for the highlighted words --- */
+.hero-description strong {
+  color: var(--primary-color, #FFD600); /* Use your signature gold */
+  font-weight: 700; /* Make it bolder */
+  font-style: normal; /* Ensure it's not italic */
+  text-shadow: 0 0 8px rgba(255, 214, 0, 0.5); /* A subtle golden GLOW for a premium feel */
+}
+
+
+/* ... (The rest of your CSS, like for .hero-button and .hero-images, remains the same) ... */
+
+/* ... (Your other styles for h1, p, .hero-button, images, etc. remain the same) ... */

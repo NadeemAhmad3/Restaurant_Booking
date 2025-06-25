@@ -1,0 +1,26 @@
+/* src/index.css */
+
+:root {
+  /* This variable is correct. Keep it. */
+  --navbar-background-color: rgba(26, 26, 26, 0.8);
+
+  /* Add other theme variables here if you wish */
+  --primary-color: #FFD600
+;
+  --primary-variant-color: #c33024;
+  --text-on-primary: #ffffff;
+  --text-color: #212121;
+   --muted-text: #666;
+  --card-bg: #fff;
+  --card-border: #ececec;
+  --card-shadow: 0 8px 32px rgba(0,0,0,0.07);
+  --about-bg: linear-gradient(120deg, #fff 80%, #f9f6f3 100%);
+}
+
+body, html {
+  background-color: black;;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden; /* This is fine for preventing scroll issues */
+}

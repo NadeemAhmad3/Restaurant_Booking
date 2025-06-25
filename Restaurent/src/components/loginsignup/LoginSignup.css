@@ -1,0 +1,369 @@
+/* General container for the login/signup page */
+.login-signup-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a dark overlay to make the form pop */
+.login-signup-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* The main form box with the glass effect */
+.form-box {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 25px;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: #fff;
+  animation: slideIn 0.6s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.7),
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Logo at the top of the form */
+.form-logo {
+  margin-bottom: 15px;
+  animation: fadeInDown 0.8s ease-out 0.2s both;
+}
+
+.form-logo img {
+  width: 120px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(255, 201, 64, 0.3));
+}
+
+.form-logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(255, 201, 64, 0.5));
+}
+
+/* Logo fade in animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form header styles */
+.form-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffc940;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(255, 201, 64, 0.3);
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.form-header p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input field group */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+  animation: fadeInLeft 0.6s ease-out both;
+}
+
+.input-group:nth-child(1) { animation-delay: 0.5s; }
+.input-group:nth-child(2) { animation-delay: 0.6s; }
+.input-group:nth-child(3) { animation-delay: 0.7s; }
+
+/* Fade in left animation */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 3;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 15px 14px 45px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.input-group input::placeholder {
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #ffc940;
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 0 20px rgba(255, 201, 64, 0.4),
+    0 4px 12px rgba(255, 201, 64, 0.2),
+    inset 0 1px 3px rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.input-group input:focus + .input-icon,
+.input-group input:focus ~ .input-icon {
+  color: #ffc940;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.input-group input:focus::placeholder {
+  color: #bbb;
+}
+
+/* Floating label effect */
+.input-group input:not(:placeholder-shown) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Submit button with the theme gradient */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffc940 0%, #ff9933 100%);
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+  box-shadow: 
+    0 4px 15px rgba(255, 201, 64, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 8px 25px rgba(255, 201, 64, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ffdb4d 0%, #ffaa40 100%);
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:active {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Toggle link at the bottom */
+.toggle-form {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #ccc;
+  animation: fadeIn 1s ease-out 0.9s both;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.toggle-form span {
+  color: #ffc940;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.toggle-form span::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ffc940, #ff9933);
+  transition: width 0.3s ease;
+}
+
+.toggle-form span:hover {
+  color: #ffdb4d;
+  background-color: rgba(255, 201, 64, 0.1);
+  transform: translateY(-1px);
+}
+
+.toggle-form span:hover::before {
+  width: 100%;
+}
+
+/* Loading animation for form transitions */
+.form-box.switching {
+  animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .form-box {
+    padding: 30px 20px;
+    max-width: 350px;
+    margin: 10px;
+  }
+  
+  .form-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .form-logo img {
+    width: 100px;
+  }
+  
+  .input-group input {
+    padding: 12px 15px 12px 40px;
+    font-size: 0.9rem;
+  }
+  
+  .input-icon {
+    font-size: 1rem;
+    left: 12px;
+  }
+  
+  .submit-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-signup-container {
+    padding: 15px;
+  }
+  
+  .form-box {
+    padding: 25px 15px;
+  }
+  
+  .input-group {
+    margin-bottom: 18px;
+  }
+  
+  .form-header {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,178 @@
+/* src/components/Navbar.css */
+
+/* ==========================================================================
+   1. Main Navbar Layout & Container
+   ========================================================================== */
+
+.navbar {
+ position: fixed; /* Changed from relative to fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+  background-color: var(--navbar-background-color); 
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.navbar-content {
+  /* padding: 0.7rem 2rem; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   2. Logo Section (Left)
+   ========================================================================== */
+
+.navbar-logo img {
+  height: 60px;
+  width: 140px;
+  transition: filter 0.3s ease-in-out; /* Smooth transition for the glow */
+}
+
+.navbar-logo:hover img {
+  filter: drop-shadow(0 0 10px var(--primary-color, yellow));
+}
+
+
+/* ==========================================================================
+   3. Navigation Links (Center)
+   ========================================================================== */
+
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 1rem;
+}
+
+.navbar-links a {
+  position: relative; /* Anchor for the ::after pseudo-element */
+  padding: 1rem 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #fff; /* This rule can be removed if it's the same as the base color */
+}
+
+/* --- Animated Underline Effect --- */
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color, yellow);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  transform: scaleX(1);
+}
+
+
+/* ==========================================================================
+   4. Action Buttons (Right)
+   ========================================================================== */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Base Style for Both Buttons --- */
+.action-btn-primary, 
+.action-btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* --- Primary Button (Filled) --- */
+.action-btn-primary {
+  color: #1a1a1a;
+  background-image: linear-gradient(to right, #FFD600, #FFAB00);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.action-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 214, 0, 0.4);
+}
+
+/* --- Secondary Button (Outline/Ghost) --- */
+.action-btn-secondary {
+  color: var(--primary-color, yellow);
+  background-color: transparent;
+  border-color: var(--primary-color, yellow);
+}
+
+.action-btn-secondary:hover {
+  color: #1a1a1a;
+  background-color: var(--primary-color, yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 214, 0, 0.3);
+}
+/* src/components/heroSection/Navbar.css */
+
+/* ... (all your existing CSS from .navbar down to .action-btn-secondary:hover) ... */
+
+
+/* ==========================================================================
+   5. New Icon-Only Button Style (for Logout)
+   ========================================================================== */
+
+.action-btn-icon-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;  /* Fixed width */
+  height: 44px; /* Fixed height */
+  padding: 0;
+  border: 2px solid var(--primary-color, yellow);
+  background-color: transparent;
+  color: var(--primary-color, yellow);
+  border-radius: 50%; /* Makes it circular */
+  font-size: 1.25rem; /* Makes the icon larger */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn-icon-only:hover {
+  background-color: var(--primary-color, yellow);
+  color: #1a1a1a;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 214, 0, 0.3);
+}
